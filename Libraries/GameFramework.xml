@@ -12593,6 +12593,13 @@
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="M:GameFramework.Resource.IResourceManager.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset">资源</param>
+            <returns></returns>
+        </member>
         <member name="M:GameFramework.Resource.IResourceManager.UnloadAsset(System.Object)">
             <summary>
             卸载资源。
@@ -13931,6 +13938,13 @@
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="M:GameFramework.Resource.ResourceManager.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset">资源</param>
+            <returns></returns>
+        </member>
         <member name="M:GameFramework.Resource.ResourceManager.UnloadAsset(System.Object)">
             <summary>
             卸载资源。
@@ -14491,6 +14505,13 @@
             <param name="priority">加载资源的优先级。</param>
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset"></param>
+            <returns></returns>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.UnloadAsset(System.Object)">
             <summary>
@@ -18555,9 +18576,15 @@
         </member>
         <member name="M:GameFramework.UI.IUIManager.SetResourceManager(GameFramework.Resource.IResourceManager)">
             <summary>
-            设置资源管理器。
+            设置资源管理器
             </summary>
             <param name="resourceManager">资源管理器。</param>
+        </member>
+        <member name="M:GameFramework.UI.IUIManager.SetUIResourceHelper(GameFramework.UI.IUIResourceHelper)">
+            <summary>
+            设置UI资源辅助器。
+            </summary>
+            <param name="uiResourceHelper">UI资源辅助器。</param>
         </member>
         <member name="M:GameFramework.UI.IUIManager.SetUIFormHelper(GameFramework.UI.IUIFormHelper)">
             <summary>
@@ -18839,6 +18866,26 @@
             </summary>
             <param name="uiFormInstance">要设置优先级的界面实例。</param>
             <param name="priority">界面实例优先级。</param>
+        </member>
+        <member name="T:GameFramework.UI.IUIResourceHelper">
+            <summary>
+            UI 资源辅助器
+            </summary>
+        </member>
+        <member name="M:GameFramework.UI.IUIResourceHelper.SetResourceManager(GameFramework.Resource.IResourceManager)">
+            <summary>
+            设置资源管理器
+            </summary>
+            <param name="resourceManager"></param>
+        </member>
+        <member name="M:GameFramework.UI.IUIResourceHelper.LoadAsset(System.String,System.Int32,GameFramework.Resource.LoadAssetCallbacks,System.Object)">
+            <summary>
+            加载UI资源
+            </summary>
+            <param name="assetName">资源名称</param>
+            <param name="priority">优先级</param>
+            <param name="loadAssetCallbacks">加载资源回调</param>
+            <param name="userData">用户定义数据</param>
         </member>
         <member name="T:GameFramework.UI.OpenUIFormDependencyAssetEventArgs">
             <summary>
@@ -19142,9 +19189,15 @@
         </member>
         <member name="M:GameFramework.UI.UIManager.SetResourceManager(GameFramework.Resource.IResourceManager)">
             <summary>
-            设置资源管理器。
+            设置资源管理器
             </summary>
             <param name="resourceManager">资源管理器。</param>
+        </member>
+        <member name="M:GameFramework.UI.UIManager.SetUIResourceHelper(GameFramework.UI.IUIResourceHelper)">
+            <summary>
+            设置UI资源辅助器。
+            </summary>
+            <param name="uiResourceHelper">UI资源辅助器。</param>
         </member>
         <member name="M:GameFramework.UI.UIManager.SetUIFormHelper(GameFramework.UI.IUIFormHelper)">
             <summary>

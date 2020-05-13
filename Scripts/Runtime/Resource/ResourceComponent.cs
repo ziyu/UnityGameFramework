@@ -890,6 +890,11 @@ namespace UnityGameFramework.Runtime
             m_ResourceManager.LoadAsset(assetName, assetType, priority, loadAssetCallbacks, userData);
         }
 
+        public object GetResourceFromAsset(object asset)
+        {
+            return m_ResourceManager.GetResourceFromAsset(asset);
+        }
+
         /// <summary>
         /// 卸载资源。
         /// </summary>

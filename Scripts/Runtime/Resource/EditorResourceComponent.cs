@@ -1336,6 +1336,11 @@ namespace UnityGameFramework.Runtime
             return null;
         }
 
+        public object GetResourceFromAsset(object asset)
+        {
+            throw new NotSupportedException("GetResourceFromAsset");
+        }
+
         private struct LoadAssetInfo
         {
             private readonly string m_AssetName;
