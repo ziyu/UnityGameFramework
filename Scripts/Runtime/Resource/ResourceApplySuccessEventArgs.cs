@@ -11,29 +11,29 @@ using GameFramework.Event;
 namespace UnityGameFramework.Runtime
 {
     /// <summary>
-    /// 资源更新成功事件。
+    /// 资源应用成功事件。
     /// </summary>
-    public sealed class ResourceUpdateSuccessEventArgs : GameEventArgs
+    public sealed class ResourceApplySuccessEventArgs : GameEventArgs
     {
         /// <summary>
-        /// 资源更新成功事件编号。
+        /// 资源应用成功事件编号。
         /// </summary>
-        public static readonly int EventId = typeof(ResourceUpdateSuccessEventArgs).GetHashCode();
+        public static readonly int EventId = typeof(ResourceApplySuccessEventArgs).GetHashCode();
 
         /// <summary>
-        /// 初始化资源更新成功事件的新实例。
+        /// 初始化资源应用成功事件的新实例。
         /// </summary>
-        public ResourceUpdateSuccessEventArgs()
+        public ResourceApplySuccessEventArgs()
         {
             Name = null;
-            DownloadPath = null;
-            DownloadUri = null;
+            ApplyPath = null;
+            ResourcePackPath = null;
             Length = 0;
             ZipLength = 0;
         }
 
         /// <summary>
-        /// 获取资源更新成功事件编号。
+        /// 获取资源应用成功事件编号。
         /// </summary>
         public override int Id
         {
@@ -53,18 +53,18 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 获取资源下载后存放路径。
+        /// 获取资源应用后存放路径。
         /// </summary>
-        public string DownloadPath
+        public string ApplyPath
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取下载地址。
+        /// 获取资源包路径。
         /// </summary>
-        public string DownloadUri
+        public string ResourcePackPath
         {
             get;
             private set;
@@ -89,29 +89,29 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 创建资源更新成功事件。
+        /// 创建资源应用成功事件。
         /// </summary>
         /// <param name="e">内部事件。</param>
-        /// <returns>创建的资源更新成功事件。</returns>
-        public static ResourceUpdateSuccessEventArgs Create(GameFramework.Resource.ResourceUpdateSuccessEventArgs e)
+        /// <returns>创建的资源应用成功事件。</returns>
+        public static ResourceApplySuccessEventArgs Create(GameFramework.Resource.ResourceApplySuccessEventArgs e)
         {
-            ResourceUpdateSuccessEventArgs resourceUpdateSuccessEventArgs = ReferencePool.Acquire<ResourceUpdateSuccessEventArgs>();
-            resourceUpdateSuccessEventArgs.Name = e.Name;
-            resourceUpdateSuccessEventArgs.DownloadPath = e.DownloadPath;
-            resourceUpdateSuccessEventArgs.DownloadUri = e.DownloadUri;
-            resourceUpdateSuccessEventArgs.Length = e.Length;
-            resourceUpdateSuccessEventArgs.ZipLength = e.ZipLength;
-            return resourceUpdateSuccessEventArgs;
+            ResourceApplySuccessEventArgs resourceApplySuccessEventArgs = ReferencePool.Acquire<ResourceApplySuccessEventArgs>();
+            resourceApplySuccessEventArgs.Name = e.Name;
+            resourceApplySuccessEventArgs.ApplyPath = e.ApplyPath;
+            resourceApplySuccessEventArgs.ResourcePackPath = e.ResourcePackPath;
+            resourceApplySuccessEventArgs.Length = e.Length;
+            resourceApplySuccessEventArgs.ZipLength = e.ZipLength;
+            return resourceApplySuccessEventArgs;
         }
 
         /// <summary>
-        /// 清理资源更新成功事件。
+        /// 清理资源应用成功事件。
         /// </summary>
         public override void Clear()
         {
             Name = null;
-            DownloadPath = null;
-            DownloadUri = null;
+            ApplyPath = null;
+            ResourcePackPath = null;
             Length = 0;
             ZipLength = 0;
         }
