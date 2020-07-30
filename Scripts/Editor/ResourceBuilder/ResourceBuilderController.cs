@@ -842,7 +842,7 @@ namespace UnityGameFramework.Editor.ResourceTools
                 string[] fileNames = Directory.GetFiles(workingPath, "*", SearchOption.AllDirectories);
                 foreach (string fileName in fileNames)
                 {
-                    if (fileName.EndsWith(".manifest"))
+                    if (fileName.EndsWith(".manifest", StringComparison.Ordinal))
                     {
                         continue;
                     }
@@ -1555,12 +1555,12 @@ namespace UnityGameFramework.Editor.ResourceTools
             return true;
         }
 
-        private string GetResourceFullName(string name, string variant)
+        private static string GetResourceFullName(string name, string variant)
         {
             return !string.IsNullOrEmpty(variant) ? Utility.Text.Format("{0}.{1}", name, variant) : name;
         }
 
-        private BuildTarget GetBuildTarget(Platform platform)
+        private static BuildTarget GetBuildTarget(Platform platform)
         {
             switch (platform)
             {
@@ -1596,7 +1596,7 @@ namespace UnityGameFramework.Editor.ResourceTools
             }
         }
 
-        private string GetExtension(ResourceData data)
+        private static string GetExtension(ResourceData data)
         {
             if (data.IsLoadFromBinary)
             {

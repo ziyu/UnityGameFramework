@@ -883,7 +883,7 @@ namespace UnityGameFramework.Runtime
                 return HasAssetResult.NotExist;
             }
 
-            return obj.GetType() == typeof(UnityEditor.DefaultAsset) ? HasAssetResult.Binary : HasAssetResult.Asset;
+            return obj.GetType() == typeof(UnityEditor.DefaultAsset) ? HasAssetResult.BinaryOnDisk : HasAssetResult.AssetOnDisk;
 #else
             return HasAssetResult.NotExist;
 #endif
@@ -994,7 +994,7 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            if (!assetName.StartsWith("Assets/"))
+            if (!assetName.StartsWith("Assets/", StringComparison.Ordinal))
             {
                 if (loadAssetCallbacks.LoadAssetFailureCallback != null)
                 {
@@ -1083,7 +1083,7 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            if (!sceneAssetName.StartsWith("Assets/") || !sceneAssetName.EndsWith(".unity"))
+            if (!sceneAssetName.StartsWith("Assets/", StringComparison.Ordinal) || !sceneAssetName.EndsWith(".unity", StringComparison.Ordinal))
             {
                 if (loadSceneCallbacks.LoadSceneFailureCallback != null)
                 {
@@ -1140,7 +1140,7 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            if (!sceneAssetName.StartsWith("Assets/") || !sceneAssetName.EndsWith(".unity"))
+            if (!sceneAssetName.StartsWith("Assets/", StringComparison.Ordinal) || !sceneAssetName.EndsWith(".unity", StringComparison.Ordinal))
             {
                 Log.Error("Scene asset name '{0}' is invalid.", sceneAssetName);
                 return;
@@ -1215,6 +1215,22 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
+        /// 获取二进制资源的长度。
+        /// </summary>
+        /// <param name="binaryAssetName">要获取长度的二进制资源的名称。</param>
+        /// <returns>二进制资源的长度。</returns>
+        public int GetBinaryLength(string binaryAssetName)
+        {
+            string binaryPath = GetBinaryPath(binaryAssetName);
+            if (string.IsNullOrEmpty(binaryPath))
+            {
+                return -1;
+            }
+
+            return (int)new System.IO.FileInfo(binaryPath).Length;
+        }
+
+        /// <summary>
         /// 异步加载二进制资源。
         /// </summary>
         /// <param name="binaryAssetName">要加载二进制资源的名称。</param>
@@ -1248,7 +1264,7 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            if (!binaryAssetName.StartsWith("Assets/"))
+            if (!binaryAssetName.StartsWith("Assets/", StringComparison.Ordinal))
             {
                 if (loadBinaryCallbacks.LoadBinaryFailureCallback != null)
                 {
@@ -1460,11 +1476,11 @@ namespace UnityGameFramework.Runtime
                 return false;
             }
 
-            string[] splitAssetFullName = assetFullName.Split('/');
+            string[] splitedAssetFullName = assetFullName.Split('/');
             string currentPath = Path.GetPathRoot(assetFullName);
-            for (int i = 1; i < splitAssetFullName.Length - 1; i++)
+            for (int i = 1; i < splitedAssetFullName.Length - 1; i++)
             {
-                string[] directoryNames = Directory.GetDirectories(currentPath, splitAssetFullName[i]);
+                string[] directoryNames = Directory.GetDirectories(currentPath, splitedAssetFullName[i]);
                 if (directoryNames.Length != 1)
                 {
                     return false;
@@ -1473,7 +1489,7 @@ namespace UnityGameFramework.Runtime
                 currentPath = directoryNames[0];
             }
 
-            string[] fileNames = Directory.GetFiles(currentPath, splitAssetFullName[splitAssetFullName.Length - 1]);
+            string[] fileNames = Directory.GetFiles(currentPath, splitedAssetFullName[splitedAssetFullName.Length - 1]);
             if (fileNames.Length != 1)
             {
                 return false;
