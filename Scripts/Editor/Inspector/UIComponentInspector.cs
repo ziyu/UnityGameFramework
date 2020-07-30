@@ -25,8 +25,10 @@ namespace UnityGameFramework.Editor
         private SerializedProperty m_InstanceRoot = null;
         private SerializedProperty m_UIGroups = null;
 
+        private HelperInfo<UIResourceHelperBase> m_UIResourceHelperInfo = new HelperInfo<UIResourceHelperBase>("UIResource");
         private HelperInfo<UIFormHelperBase> m_UIFormHelperInfo = new HelperInfo<UIFormHelperBase>("UIForm");
         private HelperInfo<UIGroupHelperBase> m_UIGroupHelperInfo = new HelperInfo<UIGroupHelperBase>("UIGroup");
+   
 
         public override void OnInspectorGUI()
         {
@@ -101,6 +103,7 @@ namespace UnityGameFramework.Editor
             EditorGUI.BeginDisabledGroup(EditorApplication.isPlayingOrWillChangePlaymode);
             {
                 EditorGUILayout.PropertyField(m_InstanceRoot);
+                m_UIResourceHelperInfo.Draw();
                 m_UIFormHelperInfo.Draw();
                 m_UIGroupHelperInfo.Draw();
                 EditorGUILayout.PropertyField(m_UIGroups, true);
@@ -138,6 +141,7 @@ namespace UnityGameFramework.Editor
             m_InstanceRoot = serializedObject.FindProperty("m_InstanceRoot");
             m_UIGroups = serializedObject.FindProperty("m_UIGroups");
 
+            m_UIResourceHelperInfo.Init(serializedObject);
             m_UIFormHelperInfo.Init(serializedObject);
             m_UIGroupHelperInfo.Init(serializedObject);
 
@@ -146,6 +150,7 @@ namespace UnityGameFramework.Editor
 
         private void RefreshTypeNames()
         {
+            m_UIResourceHelperInfo.Refresh();
             m_UIFormHelperInfo.Refresh();
             m_UIGroupHelperInfo.Refresh();
             serializedObject.ApplyModifiedProperties();
