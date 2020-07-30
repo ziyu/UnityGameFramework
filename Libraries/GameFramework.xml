@@ -3946,6 +3946,84 @@
             关闭并清理数据表。
             </summary>
         </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.HasDataRow(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            检查是否存在数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>是否存在数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRow(System.Int32)">
+            <summary>
+            获取数据表行。
+            </summary>
+            <param name="id">数据表行的编号。</param>
+            <returns>数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRow(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>符合条件的数据表行。</returns>
+            <remarks>当存在多个符合条件的数据表行时，仅返回第一个符合条件的数据表行。</remarks>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>符合条件的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="results">符合条件的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Comparison{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的数据表行。
+            </summary>
+            <param name="comparison">要排序的条件。</param>
+            <returns>排序后的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Comparison{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的数据表行。
+            </summary>
+            <param name="comparison">要排序的条件。</param>
+            <param name="results">排序后的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Comparison{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="comparison">要排序的条件。</param>
+            <returns>排序后的符合条件的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Comparison{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="comparison">要排序的条件。</param>
+            <param name="results">排序后的符合条件的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetAllDataRows">
+            <summary>
+            获取所有数据表行。
+            </summary>
+            <returns>所有数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableBase.GetAllDataRows(System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取所有数据表行。
+            </summary>
+            <param name="results">所有数据表行。</param>
+        </member>
         <member name="T:GameFramework.DataTable.DataTableManager">
             <summary>
             数据表管理器。
@@ -4165,12 +4243,12 @@
             <param name="id">数据表行的编号。</param>
             <returns>数据表行。</returns>
         </member>
-        <member name="P:GameFramework.DataTable.DataTableManager.DataTable`1.MinIdDataRow">
+        <member name="P:GameFramework.DataTable.DataTableManager.DataTable`1.MinIdDataRowT">
             <summary>
             获取编号最小的数据表行。
             </summary>
         </member>
-        <member name="P:GameFramework.DataTable.DataTableManager.DataTable`1.MaxIdDataRow">
+        <member name="P:GameFramework.DataTable.DataTableManager.DataTable`1.MaxIdDataRowT">
             <summary>
             获取编号最大的数据表行。
             </summary>
@@ -4189,7 +4267,7 @@
             <param name="condition">要检查的条件。</param>
             <returns>是否存在数据表行。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.GetDataRow(System.Int32)">
+        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.GetDataRowT(System.Int32)">
             <summary>
             获取数据表行。
             </summary>
@@ -4248,7 +4326,7 @@
             <param name="comparison">要排序的条件。</param>
             <param name="results">排序后的符合条件的数据表行。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.GetAllDataRows">
+        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.GetAllDataRowsT">
             <summary>
             获取所有数据表行。
             </summary>
@@ -4368,12 +4446,12 @@
             <param name="id">数据表行的编号。</param>
             <returns>数据表行。</returns>
         </member>
-        <member name="P:GameFramework.DataTable.IDataTable`1.MinIdDataRow">
+        <member name="P:GameFramework.DataTable.IDataTable`1.MinIdDataRowT">
             <summary>
             获取编号最小的数据表行。
             </summary>
         </member>
-        <member name="P:GameFramework.DataTable.IDataTable`1.MaxIdDataRow">
+        <member name="P:GameFramework.DataTable.IDataTable`1.MaxIdDataRowT">
             <summary>
             获取编号最大的数据表行。
             </summary>
@@ -4392,7 +4470,7 @@
             <param name="condition">要检查的条件。</param>
             <returns>是否存在数据表行。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTable`1.GetDataRow(System.Int32)">
+        <member name="M:GameFramework.DataTable.IDataTable`1.GetDataRowT(System.Int32)">
             <summary>
             获取数据表行。
             </summary>
@@ -4451,7 +4529,7 @@
             <param name="comparison">要排序的条件。</param>
             <param name="results">排序后的符合条件的数据表行。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTable`1.GetAllDataRows">
+        <member name="M:GameFramework.DataTable.IDataTable`1.GetAllDataRowsT">
             <summary>
             获取所有数据表行。
             </summary>
@@ -4492,6 +4570,126 @@
             <summary>
             清空所有数据表行。
             </summary>
+        </member>
+        <member name="T:GameFramework.DataTable.IDataTable">
+            <summary>
+            数据表接口。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.Name">
+            <summary>
+            获取数据表名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.FullName">
+            <summary>
+            获取数据表完整名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.Type">
+            <summary>
+            获取数据表行的类型。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.Count">
+            <summary>
+            获取数据表行数。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.MinIdDataRow">
+            <summary>
+            获取编号最小的数据表行。
+            </summary>
+        </member>
+        <member name="P:GameFramework.DataTable.IDataTable.MaxIdDataRow">
+            <summary>
+            获取编号最大的数据表行。
+            </summary>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.HasDataRow(System.Int32)">
+            <summary>
+            检查是否存在数据表行。
+            </summary>
+            <param name="id">数据表行的编号。</param>
+            <returns>是否存在数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.HasDataRow(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            检查是否存在数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>是否存在数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRow(System.Int32)">
+            <summary>
+            获取数据表行。
+            </summary>
+            <param name="id">数据表行的编号。</param>
+            <returns>数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRow(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>符合条件的数据表行。</returns>
+            <remarks>当存在多个符合条件的数据表行时，仅返回第一个符合条件的数据表行。</remarks>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <returns>符合条件的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="results">符合条件的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Comparison{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的数据表行。
+            </summary>
+            <param name="comparison">要排序的条件。</param>
+            <returns>排序后的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Comparison{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的数据表行。
+            </summary>
+            <param name="comparison">要排序的条件。</param>
+            <param name="results">排序后的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Comparison{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="comparison">要排序的条件。</param>
+            <returns>排序后的符合条件的数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetDataRows(System.Predicate{GameFramework.DataTable.IDataRow},System.Comparison{GameFramework.DataTable.IDataRow},System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取排序后的符合条件的数据表行。
+            </summary>
+            <param name="condition">要检查的条件。</param>
+            <param name="comparison">要排序的条件。</param>
+            <param name="results">排序后的符合条件的数据表行。</param>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetAllDataRows">
+            <summary>
+            获取所有数据表行。
+            </summary>
+            <returns>所有数据表行。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable.GetAllDataRows(System.Collections.Generic.List{GameFramework.DataTable.IDataRow})">
+            <summary>
+            获取所有数据表行。
+            </summary>
+            <param name="results">所有数据表行。</param>
         </member>
         <member name="T:GameFramework.DataTable.IDataTableHelper">
             <summary>
@@ -13542,6 +13740,13 @@
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="M:GameFramework.Resource.IResourceManager.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset">资源</param>
+            <returns></returns>
+        </member>
         <member name="M:GameFramework.Resource.IResourceManager.UnloadAsset(System.Object)">
             <summary>
             卸载资源。
@@ -15177,6 +15382,13 @@
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="M:GameFramework.Resource.ResourceManager.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset">资源</param>
+            <returns></returns>
+        </member>
         <member name="M:GameFramework.Resource.ResourceManager.UnloadAsset(System.Object)">
             <summary>
             卸载资源。
@@ -15909,6 +16121,13 @@
             <param name="priority">加载资源的优先级。</param>
             <param name="loadAssetCallbacks">加载资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.GetResourceFromAsset(System.Object)">
+            <summary>
+            获取资源包
+            </summary>
+            <param name="asset"></param>
+            <returns></returns>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.UnloadAsset(System.Object)">
             <summary>
@@ -20272,9 +20491,15 @@
         </member>
         <member name="M:GameFramework.UI.IUIManager.SetResourceManager(GameFramework.Resource.IResourceManager)">
             <summary>
-            设置资源管理器。
+            设置资源管理器
             </summary>
             <param name="resourceManager">资源管理器。</param>
+        </member>
+        <member name="M:GameFramework.UI.IUIManager.SetUIResourceHelper(GameFramework.UI.IUIResourceHelper)">
+            <summary>
+            设置UI资源辅助器。
+            </summary>
+            <param name="uiResourceHelper">UI资源辅助器。</param>
         </member>
         <member name="M:GameFramework.UI.IUIManager.SetUIFormHelper(GameFramework.UI.IUIFormHelper)">
             <summary>
@@ -20556,6 +20781,26 @@
             </summary>
             <param name="uiFormInstance">要设置优先级的界面实例。</param>
             <param name="priority">界面实例优先级。</param>
+        </member>
+        <member name="T:GameFramework.UI.IUIResourceHelper">
+            <summary>
+            UI 资源辅助器
+            </summary>
+        </member>
+        <member name="M:GameFramework.UI.IUIResourceHelper.SetResourceManager(GameFramework.Resource.IResourceManager)">
+            <summary>
+            设置资源管理器
+            </summary>
+            <param name="resourceManager"></param>
+        </member>
+        <member name="M:GameFramework.UI.IUIResourceHelper.LoadAsset(System.String,System.Int32,GameFramework.Resource.LoadAssetCallbacks,System.Object)">
+            <summary>
+            加载UI资源
+            </summary>
+            <param name="assetName">资源名称</param>
+            <param name="priority">优先级</param>
+            <param name="loadAssetCallbacks">加载资源回调</param>
+            <param name="userData">用户定义数据</param>
         </member>
         <member name="T:GameFramework.UI.OpenUIFormDependencyAssetEventArgs">
             <summary>
@@ -20859,9 +21104,15 @@
         </member>
         <member name="M:GameFramework.UI.UIManager.SetResourceManager(GameFramework.Resource.IResourceManager)">
             <summary>
-            设置资源管理器。
+            设置资源管理器
             </summary>
             <param name="resourceManager">资源管理器。</param>
+        </member>
+        <member name="M:GameFramework.UI.UIManager.SetUIResourceHelper(GameFramework.UI.IUIResourceHelper)">
+            <summary>
+            设置UI资源辅助器。
+            </summary>
+            <param name="uiResourceHelper">UI资源辅助器。</param>
         </member>
         <member name="M:GameFramework.UI.UIManager.SetUIFormHelper(GameFramework.UI.IUIFormHelper)">
             <summary>
